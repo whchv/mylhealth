@@ -1,0 +1,81 @@
+{template header}
+<link rel="stylesheet" type="text/css" href="{SITE_THEME}style/index.css" />
+<div id="Main">
+    <div id="mainBox">
+        <div class="tuan-dui main-elem">
+            <div class="box-header">管理团队</div>
+            <ul class="box-body">
+                {sql "select * from tb_member a, tb_member_geren b where a.id=b.id and b.xianshi='1' order by paixu;"}
+                <li class="td-list">
+                    <div class="user-img"><img src="{get_member_avatar($t['id'])}"></div>
+                    <div class="user-sub">
+                        <a href="{SITE_URL}index.php?a=dongtai&tt=member&uu={$t[id]}">{$t['nickname']}</a>
+                        <span>{$t['jieshao']}</span>
+                    </div>
+                </li>
+                {/sql}
+            </ul>
+        </div>
+        <div class="dong-tai main-elem">
+            <div class="box-header">
+                <span class="header-left">发展动态</span>
+                <span class="header-right" style="display:none">
+                    <a href="{SITE_URL}index.php?a=dongtai&tt=category&cc=2">公司</a> /
+                    <a href="{SITE_URL}index.php?a=dongtai&tt=category&cc=3">客户</a> /
+                    <a href="{SITE_URL}index.php?a=dongtai&tt=category&cc=4">员工</a>
+                </span>
+            </div>
+            <div class="box-body" data-num='20' data-page="1" data-where="modelid=1 and a.userid=0">
+                <ul class="dongtai-list">
+                    <li class="dt-list tpl" style="display:none">
+                        <div class="dt-type">
+                            <a href="{SITE_URL}index.php?a=dongtai&tt=category&cc="></a>
+                        </div>
+                        <div class="dt-title">
+                            <a href="{SITE_URL}index.php?a=content&tt=category&cc="></a>
+                        </div>
+                        <div class="dt-date"></div>
+                    </li>
+                    {list userid=0 modelid=1 num=20 order=updatetime desc}
+                    <li class="dt-list">
+                        <div class="dt-type">
+                            <a href="{SITE_URL}index.php?a=dongtai&tt=category&cc={$t[catid]}">{$cats[$t['catid']]['catname']}</a>
+                        </div>
+                        <div class="dt-title">
+                            <a href="{SITE_URL}index.php?a=content&tt=category&cc={$t[id]}">{$t[title]}</a>
+                        </div>
+                        <div class="dt-date">{date("Y-m-d", $t[updatetime])}</div>
+                    </li>
+                    {/list}
+                </ul>
+                <button class="dongtai-more btn" data-post="{SITE_URL}index.php?a=post">查看更多</button>
+            </div>
+        </div>
+        <div class="chan-pin main-elem">
+            <div class="box-header">健康产品</div>
+            <div class="box-body">
+                <a href="{SITE_URL}index.php?a=chanpin&tt=main&cc=6">
+                    <li class="cp-list">
+                        <div class="cp-img"><img src="{SITE_THEME}style/image/product_1.jpg"></div>
+                        <!-- <div class="cp-sub">一洗</div> -->
+                    </li>
+                </a>
+                <a href="{SITE_URL}index.php?a=chanpin&tt=main&cc=7">
+                    <li class="cp-list">
+                        <div class="cp-img"><img src="{SITE_THEME}style/image/product_2.jpg"></div>
+                        <!-- <div class="cp-sub">二护</div> -->
+                    </li>
+                </a>
+                <a href="{SITE_URL}index.php?a=chanpin&tt=main&cc=8">
+                    <li class="cp-list">
+                        <div class="cp-img"><img src="{SITE_THEME}style/image/product_3.jpg"></div>
+                        <!-- <div class="cp-sub">三穿裤</div> -->
+                    </li>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{template footer}
+</body>
+</html>

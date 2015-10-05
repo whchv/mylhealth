@@ -1,0 +1,135 @@
+
+#mainBox{
+	width: 960px;
+	margin: 0 auto;
+	}
+	#mainBox>div{
+		float: left;
+		overflow: hidden;
+	}
+	#mainBox .main-elem-header{
+		width: 100%;
+		padding-bottom: 10px;
+		margin-bottom: 20px;
+		border-bottom: 1px solid #D03109;
+		color: #D03109;
+		font: 19px '宋体',Tahoma; 
+	}
+	#mainBox .tuan-dui{
+		width: 140px;
+		}
+		#mainBox .tuan-dui .td-list{
+			width: 100%;
+			margin-bottom: 20px;
+			float: left;
+		}
+		#mainBox .tuan-dui .td-list>.user-img{
+			width: 35px;
+			height: 35px;
+			margin-right: 10px;
+			float: left;
+			}
+			#mainBox .tuan-dui .td-list>.user-sub>a{
+				width: 70px;
+				float: left;
+				height: 16px;
+				margin-bottom: 3px;
+				color: #666;
+			}
+			#mainBox .tuan-dui .td-list>.user-sub>span{
+				width: 90px;
+				float: left;
+				color: #999;
+			}
+	#mainBox .dong-tai{
+		width: 520px;
+		margin-left: 50px;
+		margin-right: 50px;
+		}
+		#mainBox .dong-tai .dt-list{
+			width: 100%;
+			margin-bottom: 8px;
+			float: left;
+			}
+			#mainBox .dong-tai .dt-list>.dt-type{
+				width: 40px;
+				float: left;
+				background: #E67817;
+				text-align: center;
+				}
+				#mainBox .dong-tai .dt-list>.dt-type>a{
+					width: 100%;
+					color: #FFF;
+					text-decoration: none;
+				}
+			#mainBox .dong-tai .dt-list>.dt-type:hover{
+				background: #D03109;
+			}
+			#mainBox .dong-tai .dt-list>.dt-title{
+				width: 400px;
+				margin-left: 10px;
+				float: left;
+				color: #6666FF;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				display: block;
+			}
+			#mainBox .dong-tai .dt-list>.dt-title>a:hover{
+				color: #D03109;
+			}
+			#mainBox .dong-tai .dt-list>.dt-date{
+				width: 70px;
+				float: right;
+				text-align: right;
+				color: #999;
+			}
+		#mainBox .dongtai-more{
+			width: 100%;
+			height: 40px;
+			margin-top: 30px;
+			float: left;
+			color: #AAA;
+			font: 17px '宋体',Tahoma;
+			background: #F4F4F4;
+		}
+		#mainBox .dongtai-more:hover{
+			background: #EEE;
+		}
+	#mainBox .chan-pin{
+		width: 200px;
+		float: right;
+		}
+		#mainBox .chan-pin>div>a{
+			text-decoration: none;
+			opacity: 0.9;  
+		}
+		#mainBox .chan-pin>div>a:hover{
+			opacity: 1;  
+		}
+		#mainBox .chan-pin li.cp-list{
+			width: 220px;
+			background: #F3F3F3;
+			margin-bottom: 20px;
+			cursor: pointer;
+			}
+			#mainBox .chan-pin li.cp-list>.cp-img{
+				width: 100%;
+				height: 150px;
+				border-right: 1px solid #CCC;
+				background: #F3F3F3;
+			}
+			#mainBox .chan-pin li.cp-list>.cp-img>img{
+				width: 200px;
+				height: 150px;
+			}
+			#mainBox .chan-pin li.cp-list>.cp-sub{
+				width: 100%;
+				height: 40px;
+				font: 21px '宋体',Tahoma;  
+				text-align: center;
+				line-height: 40px;
+				overflow: hidden;
+				background: #666;
+				color: #FFF;
+			}

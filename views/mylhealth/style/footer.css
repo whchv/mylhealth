@@ -1,0 +1,121 @@
+
+#Main{
+  width: 100%;
+	margin-bottom: 100px;
+	overflow: hidden;
+}
+
+#topBox{
+	width: 960px;
+	height: 60px;
+	margin: 0 auto;
+	}
+	#topBox .logo-box{
+		width: 120px;
+		height: 100%;
+		float: left;
+		background: yellow;
+	}
+	#topBox .map-box{
+		width: 80px;
+		height: 40px;
+		margin-top: 10px;
+		float: right;
+	}
+	#topBox .map-box>button{
+		width: 100%;
+		height: 100%;
+	}
+
+#adBox{
+	width: 100%;
+	height: 400px;
+	margin: 20px auto;
+	border-top: 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
+	text-align: center;
+	font-size: 50px;
+	}
+
+
+#mainBox{
+	width: 960px;
+	margin: 10px auto;
+	}
+	#mainBox>div{
+		float: left;
+		overflow: hidden;
+	}
+	#mainBox .main-elem-header{
+		width: 100%;
+		margin-bottom: 20px;
+		border-bottom: 1px solid #999;
+		font-size: 23px;
+		color: #666;
+	}
+	#mainBox .tuan-dui{
+		width: 80px;
+		}
+		#mainBox .tuan-dui .td-list{
+			width: 100%;
+			margin-bottom: 10px;
+			float: left;
+		}
+		#mainBox .tuan-dui .td-list>a{
+			display: inline;
+			width: 100%;
+			padding: 5px 10px;
+			background: blue;
+			color: #FFF;
+			text-decoration: none;
+			opacity: 0.5;
+		}
+		#mainBox .tuan-dui .td-list>a:hover{
+			opacity: 1;
+		}
+	#mainBox .dong-tai{
+		width: 560px;
+		margin-left: 50px;
+		margin-right: 50px;
+		}
+		#mainBox .dong-tai .dt-list{
+			width: 100%;
+			font-size: 14px;
+			}
+			#mainBox .dong-tai .dt-list>.dt-date{
+				width: 80px;
+				float: left;
+			}
+			#mainBox .dong-tai .dt-list>.dt-body{
+				width: 480px;
+				float: left;
+			}
+			#mainBox .dong-tai .dt-list a.dt-type{
+				width: 40px;
+				margin-right:5px;
+				float: left;
+				color: #3333CC;
+			}
+			#mainBox .dong-tai .dt-list a.dt-title{
+				width: 435px;
+				float: left;
+				color: #6666FF;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				display: block;
+			}
+	#mainBox .chan-pin{
+		width: 220px;
+		}
+		#mainBox .chan-pin li.cp-list{
+			width: 220px;
+			height: 100px;
+			background: red;
+			margin-bottom: 20px;
+		}
+
+
+
+
+ 

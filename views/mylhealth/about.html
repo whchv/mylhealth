@@ -1,0 +1,38 @@
+{template header}
+<link rel="stylesheet" type="text/css" href="{SITE_THEME}style/chanpin.css" />
+<div id="Main">
+    <div class="chanpin-class tabbable">
+        <ul class="nav nav-tabs">
+            {loop $data $d}
+            {if $d['catid']==$cid}
+            <li class="active"><a href="#tab{$d['catid']}" data-toggle="tab">{$d['catname']}</a></li>
+            {else}
+            <li class=""><a href="#tab{$d['catid']}" data-toggle="tab">{$d['catname']}</a></li>
+            {/if}
+            {/loop} 
+        </ul>
+        <div class="tab-content">
+            {loop $data $d}
+            {if $d['catid']==$cid}
+            <div class="tab-pane  active" id="tab{$d['catid']}">
+            {else}
+            <div class="tab-pane" id="tab{$d['catid']}">
+            {/if}
+                {$d['content']}
+            </div>
+            {/loop}
+        </div>
+    </div>
+
+    <script>
+    $(function(){
+        $('.chanpin-class a').click(function(){
+            $('.path-elem').first().find('a').text($(this).text()) ;
+        }) ;
+    })
+    </script>
+</div>
+
+{template footer}
+</body>
+</html>

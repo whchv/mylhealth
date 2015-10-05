@@ -1,0 +1,106 @@
+{template header}
+<link rel="stylesheet" type="text/css" href="{SITE_THEME}style/content.css" />
+<div id="Main">
+    <div id="mainBox">
+        <div class="left-box dt-content">
+            <div class="box-header">
+                <div class="header-main">{$content[title]}</div>
+                <div class="header-sub">
+                    <div class="content-user">
+                        {if $content[userid]}
+                        <a href="{SITE_URL}index.php?a=dongtai&tt=member&uu={$content[userid]}">{$content[nickname]}</a>
+                        {else}
+                        <a>{$content[realname]}</a>
+                        {/if}
+                    </div>
+                    <div class="content-time">发表于 {$content[updatetime]}</div>
+                </div>
+            </div>
+            <div class="box-body">
+                <div class="content-body">
+                    {$content[content]}
+                </div>
+                <div class="content-footer">
+                    {if $content[userid]}
+                    <div class="more-user">
+                        <a href="{SITE_URL}index.php?a=dongtai&tt=member&uu={$content[userid]}">>>  查看{$content[nickname]}的更多动态</a>
+                    </div>
+                    <div class="more-paging">
+                        {if $before}
+                        <a class="paging-before" href="{SITE_URL}index.php?a=content&tt=member&cc={$before[id]}">上一篇：{$before[title]}</a>
+                        {/if}
+                        {if $after}
+                        <a class="paging-after" href="{SITE_URL}index.php?a=content&tt=member&cc={$after[id]}">下一篇：{$after[title]}</a>
+                        {/if}
+                    </div>
+                    {else}
+                    <div class="more-paging">
+                        {if $before}
+                        <a class="paging-before" href="{SITE_URL}index.php?a=content&tt=category&cc={$before[id]}">上一篇：{$before[title]}</a>
+                        {/if}
+                        {if $after}
+                        <a class="paging-after" href="{SITE_URL}index.php?a=content&tt=category&cc={$after[id]}">下一篇：{$after[title]}</a>
+                        {/if}
+                    </div>
+                    {/if}
+                </div>
+            </div>
+        </div>
+        <div class="right-box">
+            <div class="rb-elem dongtai-stats">
+                {if $type==category}
+                <div class="box-header">更多动态分类</div>
+                <div class="box-body">
+                    {loop $stats $s}
+                    <a href="{SITE_URL}index.php?a=dongtai&tt=category&cc={$s[catid]}" class="dongtai-class">
+                        <div class="dongtai-name">{$s[catname]}</div>
+                        <div class="dongtai-num">{$s[cnt]}</div>
+                    </a>
+                    {/loop} 
+                </div>
+                {else}
+                <div class="box-header">{$path[1][name]}的动态分类</div>
+                <div class="box-body">
+                    {loop $stats $s}
+                    <a href="{SITE_URL}index.php?a=dongtai&tt=member&uu={$content[userid]}&cc={$s[catid]}" class="dongtai-class">
+                        <div class="dongtai-name">{$s[catname]}</div>
+                        <div class="dongtai-num">{$s[cnt]}</div>
+                    </a>
+                    {/loop} 
+                </div>
+                {/if}
+            </div>
+            <div class="rb-elem dongtai-more">
+                {if $type==category}
+                <div class="box-header">最新{$path[1][name]}动态</div>
+                <ul class="box-body dongtai-list">
+                    {list userid=0 catid=$content[catid] num=10 order=updatetime desc}
+                    <li class="dt-list">
+                        <div class="dt-title">
+                            <a href="{SITE_URL}index.php?a=content&tt=category&cc={$t[id]}">{$t[title]}</a>
+                        </div>
+                        <div class="dt-date">{date("Y-m-d", $t[updatetime])}</div>
+                    </li>
+                    {/list}
+                </ul>
+                </div>
+                {else}
+                <div class="box-header">{$path[1][name]}的最新动态</div>
+                <ul class="box-body dongtai-list">
+                    {list userid=$content[userid] num=10 order=updatetime desc}
+                    <li class="dt-list">
+                        <div class="dt-title">
+                            <a href="{SITE_URL}index.php?a=content&tt=member&cc={$t[id]}">{$t[title]}</a>
+                        </div>
+                        <div class="dt-date">{date("Y-m-d", $t[updatetime])}</div>
+                    </li>
+                    {/list}
+                    {/if}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{template footer}
+</body>
+</html>

@@ -1,0 +1,271 @@
+
+body{  
+	background:url(image/background.jpg);  
+}  
+
+#Header{
+	width: 100%;
+	overflow: hidden;
+	margin-bottom: 30px;
+}
+
+#Header .topbox{
+	width: 100%;
+	height: 80px;
+	margin: 0 auto;
+	}
+	#Header .topbox>.topbar{
+		width: 960px;
+		height: 100%;
+		margin: 0 auto;
+	}
+	#Header .topbar .logo{
+		width: 70px;
+		height: 70px;
+		float: left;
+		}
+		#Header .topbar>a{
+			width: 100%;
+			height: 100%;
+		}
+		#Header .topbar>a>img{
+			width: 100%;
+			height: 100%;
+		}
+	#Header .topbar>.map{
+		width: 90px;
+		height: 40px;
+		margin-top: 20px;
+		float: right;
+	}
+	#Header .topbar>.map>button{
+		width: 100%;
+		height: 100%;
+		border: 1px solid #CCC;
+		background: #FFF;
+		color: #999;
+	}
+	#Header .topbar>.map>button:hover{
+		background: #EEE;
+	}
+	#Header .topbar>.path{
+		width: 500px;
+		margin-top: 30px;
+		float: right;
+		}
+		#Header .topbar>.path>li{
+			max-width: 300px;
+			float: right;
+			font: 19px '宋体',Tahoma;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+		#Header .topbar>.path>li>span{
+			margin: 0 5px;
+			color: #D03109;
+		}
+		#Header .topbar>.path>li>a{
+			color: #D03109;
+		}
+		#Header .topbar>.path>li>a:hover{
+			color: #3399FF;
+		}
+
+#Header .adbox{
+	width: 960px;
+	margin: 0 auto;
+}
+
+#Header .adcategory, #adCarousel{
+	display: none;
+}
+body.index #adCarousel{
+	display: block;
+	width: 960px;
+	height: 400px;
+	border: none;
+	}
+	#adCarousel img{
+		width: 100%;
+	}
+	#adCarousel a{
+		opacity: 0;
+	}
+	#adCarousel:hover a{
+		opacity: 0.4;
+	}
+
+body.dongtai #Header .adcategory{
+	display: block;
+	width: 960px;
+	height: 320px;
+}
+
+#Main{
+	width: 100%;
+	margin-bottom: 100px;
+	overflow: hidden;
+}
+
+#Footer{
+	width: 100%;
+	margin-bottom: 20px;
+	overflow: hidden;
+	border-top: 1px solid #E67817;
+	}
+	#Footer>div{
+		width: 960px;
+		margin: 0 auto;
+		padding: 10px 0;
+		overflow: hidden;
+	}
+	#Footer>div:last-child{
+		border: none;
+	}
+	#Footer .ft-left{
+		float: left;
+		}
+		#Footer .ft-left li{
+			float: left;
+			margin-right: 5px;
+			}
+			#Footer .ft-left li>a{
+				float: left;
+			}
+			#Footer .ft-left li>span{
+				margin-left: 5px;
+				color: #999;
+			}
+	#Footer .ft-right{
+		float: right;
+		}
+		#Footer .ft-right li{
+			float: right;
+			margin-left: 5px;
+		}
+		#Footer .ft-right li>a{
+			float: right;
+		}
+		#Footer .ft-right li>span{
+			margin-right: 5px;
+			color: #999;
+		}
+
+
+	#Footer .friend-link{
+		float: left;
+		margin-top: 7px;
+		}
+	#Footer .net-icon{
+		float: right;
+		}
+		#Footer .net-icon>a{
+			float: right;
+			margin-left: 10px;
+			}
+			#Footer .net-icon img{
+				width: 30px;
+				height: 30px;
+			}
+	#Footer .copyright{
+		width: 300px;
+		float: right;
+		text-align: right;
+	}
+
+#Footer .weixin{
+	margin-top: 7px;
+	cursor: pointer;
+}
+#Footer .weixin .tpl-wx{
+	width: 100px;
+	height: 100px;
+}
+#Footer .weixin>a{
+	float: right;
+	margin-left: 30px;
+}
+ 
+
+#Header .map{display:none;}
+body.index #Header .map{display:block;}
+body.index #Header .path{display:none;}
+
+
+/******** 模块统一样式 ********/
+.box-header{
+	width: 100%;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+	float: left;
+	overflow: hidden;
+	font: 19px '宋体',Tahoma;  
+	color: #D03109;
+	border-bottom: 1px solid #D03109;
+}
+.box-body{
+	width: 100%;
+	overflow: hidden;
+	float: left;
+	margin-bottom: 10px
+}
+
+/******** 动态列表统一样式 ********/
+.dong-tai .dongtai-list{
+	width: 100%;
+	overflow: hidden;
+}
+.dong-tai .dt-list{
+	width: 100%;
+	margin-bottom: 8px;
+	float: left;
+}
+.dong-tai .dt-list>.dt-type{
+	width: 40px;
+	float: left;
+	text-align: center;
+	background: #E67817 ;
+	opacity: 0.7;
+}
+.dong-tai .dt-list>.dt-type>a{
+	width: 100%;
+	color: #FFF;
+	text-decoration: none;
+}
+.dong-tai .dt-list>.dt-type:hover{
+	opacity: 1;
+}
+.dong-tai .dt-list>.dt-title{
+	margin-left: 10px;
+	float: left;
+	color: #6666FF;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: block;
+}
+.dong-tai .dt-list>.dt-title>a:hover{
+	color: #D03109;
+}
+.dong-tai .dt-list>.dt-date{
+	width: 70px;
+	float: right;
+	text-align: right;
+	color: #999;
+}
+.dong-tai .dt-list.hot>.dt-date{
+	color: #D03109;
+}
+.dong-tai .dongtai-more{
+	width: 100%;
+	height: 40px;
+	margin-top: 30px;
+	float: left;
+	color: #AAA;
+	font: 17px '宋体',Tahoma;
+	background: #F4F4F4;
+}
+.dong-tai .dongtai-more:hover{
+	background: #EEE;
+}

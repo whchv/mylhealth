@@ -1,0 +1,118 @@
+{template header}
+<link rel="stylesheet" type="text/css" href="{SITE_THEME}style/dongtai.css" />
+<div id="Main">
+    <div id="mainBox">
+        <div class="main-box">
+            {if $type==category}
+            <div class="box-header">最新{$category[name]}动态</div>
+            <div class="box-body dong-tai" data-num='20' data-page="1" data-where="catid={$category[catid]} and a.userid=0">
+                <ul class="dongtai-list">
+                    <li class="dt-list tpl" style="display:none">
+                        <div class="dt-type">
+                            <a href="{SITE_URL}index.php?a=dongtai&tt=category&cc="></a>
+                        </div>
+                        <div class="dt-title">
+                            <a href="{SITE_URL}index.php?a=content&tt=category&cc="></a>
+                        </div>
+                        <div class="dt-date"></div>
+                    </li>
+                    {list catid=$category[catid] userid=0 num=20 order=updatetime desc}
+                    <li class="dt-list">
+                        <div class="dt-type">
+                            <a href="{SITE_URL}index.php?a=dongtai&tt=category&cc={$t[catid]}">{$cats[$t['catid']]['catname']}</a>
+                        </div>
+                        <div class="dt-title">
+                            <a href="{SITE_URL}index.php?a=content&tt=category&cc={$t[id]}">{$t[title]}</a>
+                        </div>
+                        <div class="dt-date">{date("Y-m-d", $t[updatetime])}</div>
+                    </li>
+                    {/list}
+            {else if $category[catid] == null}
+            <div class="box-header">{$path[0][name]}的最新动态</div>
+            <div class="box-body dong-tai" data-num='20' data-page="1" data-where="userid={$member[id]} and a.modelid=1">
+                <ul class="dongtai-list">
+                    <li class="dt-list tpl" style="display:none">
+                        <div class="dt-type">
+                            <a href="{SITE_URL}index.php?a=dongtai&tt=category&cc="></a>
+                        </div>
+                        <div class="dt-title">
+                            <a href="{SITE_URL}index.php?a=content&tt=member&uu={$member[id]}&cc="></a>
+                        </div>
+                        <div class="dt-date"></div>
+                    </li>
+                    {list userid=$member[id] modelid=1 num=20 order=updatetime desc}
+                    <li class="dt-list">
+                        <div class="dt-type">
+                            <a href="{SITE_URL}index.php?a=dongtai&tt=category&cc={$t[catid]}">{$cats[$t['catid']]['catname']}</a>
+                        </div>
+                        <div class="dt-title">
+                            <a href="{SITE_URL}index.php?a=content&tt=member&uu={$member[id]}&cc={$t[id]}">{$t[title]}</a>
+                        </div>
+                        <div class="dt-date">{date("Y-m-d", $t[updatetime])}</div>
+                    </li>
+                    {/list}
+            {else}
+            <div class="box-header">{$member[nickname]}的{$category[catname]}动态</div>
+            <div class="box-body dong-tai" data-num='20' data-page="1" data-where="userid={$member[id]} and catid={$category[catid]}">
+                <ul class="dongtai-list">
+                    <li class="dt-list tpl" style="display:none">
+                        <div class="dt-type">
+                            <a href="{SITE_URL}index.php?a=dongtai&tt=category&cc="></a>
+                        </div>
+                        <div class="dt-title">
+                            <a href="{SITE_URL}index.php?a=content&tt=member&uu={$member[id]}&cc="></a>
+                        </div>
+                        <div class="dt-date"></div>
+                    </li>
+                    {list userid=$member[id] catid=$category[catid] num=20 order=updatetime desc}
+                    <li class="dt-list">
+                        <div class="dt-type">
+                            <a href="{SITE_URL}index.php?a=dongtai&tt=category&cc={$t[catid]}">{$cats[$t['catid']]['catname']}</a>
+                        </div>
+                        <div class="dt-title">
+                            <a href="{SITE_URL}index.php?a=content&tt=member&uu={$member[id]}&cc={$t[id]}">{$t[title]}</a>
+                        </div>
+                        <div class="dt-date">{date("Y-m-d", $t[updatetime])}</div>
+                    </li>
+                    {/list}
+            {/if}
+                </ul>
+                <button class="dongtai-more btn" data-post="{SITE_URL}index.php?a=post">更多动态</button>
+            </div>
+        </div>
+        <div class="sub-box">
+            {if $type==category}
+            <div class="sub-box-elem">
+                <div class="box-header">更多动态分类</div>
+                <div class="box-body">
+                    {loop $stats $s}
+                    <a href="{SITE_URL}index.php?a=dongtai&tt=category&cc={$s[catid]}" class="dongtai-class">
+                        <div class="dongtai-name">{$s[catname]}</div>
+                        <div class="dongtai-num">{$s[cnt]}</div>
+                    </a>
+                    {/loop}
+                </div>
+            </div>
+            {else}
+            <div class="sub-box-elem beijing">
+                <div class="box-header">{$path[0][name]}的个人背景</div>
+                <div class="box-body">{$member[beijing]}</div>
+            </div>
+            <div class="sub-box-elem">
+                <div class="box-header">{$path[0][name]}的动态分类</div>
+                <div class="box-body">
+                    {loop $stats $s}
+                    <a href="{SITE_URL}index.php?a=dongtai&tt=member&uu={$member[id]}&cc={$s[catid]}" class="dongtai-class">
+                        <div class="dongtai-name">{$s[catname]}</div>
+                        <div class="dongtai-num">{$s[cnt]}</div>
+                    </a>
+                    {/loop} 
+                </div>
+            </div>
+            {/if}
+        </div>
+    </div>
+</div>
+{template footer}
+</body>
+</html>

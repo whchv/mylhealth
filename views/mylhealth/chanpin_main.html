@@ -1,0 +1,35 @@
+{template header}
+<link rel="stylesheet" type="text/css" href="{SITE_THEME}style/chanpin.css" />
+<div id="Main">
+    <div class="chanpin-class tabbable">
+        <ul class="nav nav-tabs">
+            {loop $category $c}
+            {if $c['catid']==$cid}
+            <li class="active"><a href="#cat{$c['catid']}" data-toggle="tab">{$c['catname']}</a></li>
+            {else}
+            <li class=""><a href="#cat{$c['catid']}" data-toggle="tab">{$c['catname']}</a></li>
+            {/if}
+            {/loop}
+        </ul>
+        <div class="tab-content">
+            {loop $category $cat}
+            {if $cat[catid]==$cid}
+            <div class="tab-pane active" id="cat{$cat[catid]}">
+            {else}
+            <div class="tab-pane" id="cat{$cat[catid]}">
+            {/if}
+                {loop $cat[item] $item}
+                <div class="chanpin-elem">
+                    <a href="{SITE_URL}index.php?a=chanpin&tt=sub&cc={$item[id]}">
+                        <img class="cp-img" src="{SITE_URL}{$item[thumb]}"><span class="cp-title">{$item[title]}</span>
+                    </a>
+                </div>
+                {/loop}
+            </div>
+            {/loop}
+        </div>
+    </div>
+</div>
+{template footer}
+</body>
+</html>
